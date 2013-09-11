@@ -1,14 +1,16 @@
 {
-    "name": "parse-js-sdk",
+    "name": "parse-js-sdk-bbb",
     "version": "1.2.8",
-    "description": "Simply hosting Parse's api on a public repo to enable access from Bower",
+    "description": "Parse JS SDK modified (minimally) to work with Backbone Boilerplate",
     "main": "lib/parse.js",
-    "repository": { 
-        "type": "git", 
-        "url": "https://github.com/albemuth/parse-js-sdk.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/giladgray/parse-js-sdk-bbb.git"
     },
     "keywords": [
-        "Parse"
+        "Parse",
+        "Backbone",
+        "Boilerplate"
     ],
     "author": "Parse Inc.",
     "license": "MIT"
