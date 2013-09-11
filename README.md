@@ -9,23 +9,26 @@ The Parse JS SDK v1.2.8 is not identical to Backbone v1.0.0, but it's close enou
 The solution? Fork the SDK and monkey-patch it with `Backbone.Events`!
 
 ## Usage
-```
-# Install from Bower
+Install from Bower:
+```bash
 $ bower install parse-js-sdk-bbb --save
 ```
 
+If using RequireJS, use the following configuration. You can 
 ```coffeescript
-# If using RequireJS, put the following in the shim block:
-
-# A dirty little trick where we pretend Parse is actually Backbone,
-# so the LayoutManager doesn't get confused. You can use either the
-# Parse or Backbone object in your app, although we'll continue to
-# call it Backbone in this generator.
-backbone:
-    exports: 'Parse'
-    init: ->
-        @Backbone = Parse
-        @Backbone.Model = Parse.Object
-        @Backbone
-
-
+require.config
+    paths:
+        parse: '../bower_components/parse-js-sdk/lib/parse'
+    shim:
+        # A dirty little trick where we pretend Parse is actually Backbone,
+        # so the LayoutManager doesn't get confused. You can use either the
+        # Parse or Backbone object in your app, although we'll continue to
+        # call it Backbone in this generator.
+        parse:
+            exports: 'Parse'
+            init: ->
+                @Backbone = Parse
+                # alias Parse.Object as Backbone.Model for compatibility
+                @Backbone.Model = Parse.Object
+                @Backbone
+```
